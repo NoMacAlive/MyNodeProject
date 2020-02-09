@@ -3,9 +3,9 @@
     <el-container style="height: 1000px" class ="is-vertical">
       <!-- HEADER -->
       <header class="el-header" style="height: 200px; background-color: #409EFF;">
-        <el-row>
+        <el-row :gutter="20">
         <!-- LOGO -->
-        <el-col :span="6">
+        <el-col :span= "6">
         <div>
           <div class="block" v-for="fit in fits" :key="fit">
             <el-image
@@ -17,35 +17,36 @@
         </el-col>
         <div style="margin-top:100px">
         <!-- BIM OBJECT -->
-        <el-col :span="3">
+        <el-col :span= "2">
           <el-button round>BIM OBJECT</el-button>
         </el-col>
 
         <!-- CASE STUDY -->
-        <el-col :span="3">
+        <el-col :span= "2">
           <el-button round>CASE STUDY</el-button>
         </el-col>
 
         <!-- STANDARD -->
-        <el-col :span="3">
+        <el-col :span= "2">
           <el-button round>STANDARD</el-button>
         </el-col>
         </div>
 
         <!-- search and filter -->
-        <el-col :span= 6>
+        <el-col :span= "8">
         <div>
-          <el-autocomplete
-            v-model="state"
-            :fetch-suggestions="querySearchAsync"
-            placeholder="Search "
-            @select="handleSelect"
-          ></el-autocomplete>
-          <el-button type="primary" icon="el-icon-search">Search</el-button>
+          <el-input placeholder="Search" v-model="input3" class="input-with-select">
+              <el-select v-model="select" slot="prepend" placeholder="Category">
+                <el-option label="Commercial" value="1"></el-option>
+                <el-option label="Education" value="2"></el-option>
+                <el-option label="New Category" value="3"></el-option>
+              </el-select>
+              <el-button slot="append" icon="el-icon-search"></el-button>
+            </el-input>
         </div>
         </el-col>
 
-        <el-col :span= 3>
+        <el-col :span= "4">
           <el-button type="success" icon="el-icon-help">SignUp</el-button>
           <el-button type="primary" icon="el-icon-user">Login</el-button>
         </el-col>
@@ -97,7 +98,11 @@ export default {
   data () {
     return {
       fits: ['scale-down'],
-      url: './static/logo_transparent.png'
+      url: './static/logo_transparent.png',
+      input1: '',
+      input2: '',
+      input3: '',
+      select: ''
     }
   }
 }
@@ -119,5 +124,10 @@ export default {
 .home {
   font:bold;
 }
-
+.el-select .el-input {
+  width: 110px;
+}
+.input-with-select .el-input-group__prepend {
+  background-color: #fff;
+}
 </style>
