@@ -1,6 +1,57 @@
 <template>
   <div id="app">
-    <el-container style="height: 1000px">
+    <el-container style="height: 1000px" class ="is-vertical">
+      <!-- HEADER -->
+      <header class="el-header" style="height: 200px; background-color: #409EFF;">
+        <el-row>
+        <!-- LOGO -->
+        <el-col :span="6">
+        <div>
+          <div class="block" v-for="fit in fits" :key="fit">
+            <el-image
+              style="width: 220px; height: 220px"
+              :src="url"
+              :fit="fit"></el-image>
+          </div>
+        </div>
+        </el-col>
+        <div style="margin-top:100px">
+        <!-- BIM OBJECT -->
+        <el-col :span="3">
+          <el-button round>BIM OBJECT</el-button>
+        </el-col>
+
+        <!-- CASE STUDY -->
+        <el-col :span="3">
+          <el-button round>CASE STUDY</el-button>
+        </el-col>
+
+        <!-- STANDARD -->
+        <el-col :span="3">
+          <el-button round>STANDARD</el-button>
+        </el-col>
+        </div>
+
+        <!-- search and filter -->
+        <el-col :span= 6>
+        <div>
+          <el-autocomplete
+            v-model="state"
+            :fetch-suggestions="querySearchAsync"
+            placeholder="Search "
+            @select="handleSelect"
+          ></el-autocomplete>
+          <el-button type="primary" icon="el-icon-search">Search</el-button>
+        </div>
+        </el-col>
+
+        <el-col :span= 3>
+          <el-button type="success" icon="el-icon-help">SignUp</el-button>
+          <el-button type="primary" icon="el-icon-user">Login</el-button>
+        </el-col>
+        </el-row>
+
+      </header>
         <el-aside>
         <div style="background-color: darkgrey" >
           <el-menu default-active="1-4-1" class="el-menu-vertical-demo">
@@ -42,7 +93,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      fits: ['scale-down'],
+      url: './static/logo_transparent.png'
+    }
+  }
 }
 </script>
 
@@ -51,7 +108,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
