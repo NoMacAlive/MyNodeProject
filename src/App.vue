@@ -1,34 +1,37 @@
 <template>
   <div id="app">
-    <el-container style="height: 1000px" class ="is-vertical">
+    <el-container style="height: 1000px; width:1910px" class ="is-vertical">
       <!-- HEADER -->
       <header class="el-header" style="height: 200px; background-color: #409EFF;">
         <el-row :gutter="20">
         <!-- LOGO -->
         <el-col :span= "6">
         <div>
-          <div class="block" v-for="fit in fits" :key="fit">
+          <router-link to="">
+          <div class="block">
             <el-image
               style="width: 220px; height: 220px"
               :src="url"
               :fit="fit"></el-image>
+
           </div>
+          </router-link >
         </div>
         </el-col>
         <div style="margin-top:100px">
         <!-- BIM OBJECT -->
         <el-col :span= "2" :gutter="20">
-          <router-link to="objects"><el-button round>Object</el-button></router-link>
+          <router-link to="objects"><el-button style="min-width:100px" round>Object</el-button></router-link>
         </el-col>
 
         <!-- CASE STUDY -->
         <el-col :span= "2" :gutter="20">
-          <router-link to="casestudies"><el-button round>Casestudy</el-button></router-link>
+          <router-link to="casestudies"><el-button style="min-width:100px" round>Casestudy</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
         <el-col :span= "2" :gutter="20">
-          <router-link to="standards"><el-button round>Standard</el-button></router-link>
+          <router-link to="standards"><el-button style="min-width:100px" round>Standard</el-button></router-link>
         </el-col>
         </div>
 
@@ -63,8 +66,8 @@
               <span slot="title">Home</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="1-1"><span class="home">Introduction</span></el-menu-item>
-              <el-menu-item index="1-2"><span class="home">GuideLines</span></el-menu-item>
+              <el-menu-item @click="goAssignBlock('Introduction',50)" index="1-1"><span class="home">Introduction</span></el-menu-item>
+              <el-menu-item @click="goAssignBlock('Guideline',50)" index="1-2"><span class="home">GuideLines</span></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-menu-item index="2">
@@ -86,7 +89,7 @@
       </el-aside>
 
       <el-main>
-        <router-view></router-view>
+        <router-view ref="view"></router-view>
       </el-main>
       </el-container>
     </el-container>
@@ -105,6 +108,11 @@ export default {
       input2: '',
       input3: '',
       select: ''
+    }
+  },
+  methods: {
+    goAssignBlock: function (el, speed) {
+      this.$refs.view.viewFunction(el, speed)
     }
   }
 }
