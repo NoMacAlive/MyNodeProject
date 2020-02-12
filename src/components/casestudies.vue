@@ -1,7 +1,7 @@
 <template>
     <div>
     <el-row>
-        <el-col :span="3" v-for="o in 6" :key="o" :offset="1" style="padding-top:10px">
+        <el-col :span="3" v-for="o in 7" :key="o" :offset="1" style="padding-top:10px">
             <el-card :body-style="{ padding: '0px' }">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSGtk6n6E_d6UcimHHbDCMJ4c8BLgPDpE77fh3NCUGB1TYr4yjd" class="image">
             <div style="padding: 14px;">

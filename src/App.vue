@@ -17,18 +17,18 @@
         </el-col>
         <div style="margin-top:100px">
         <!-- BIM OBJECT -->
-        <el-col :span= "2">
-          <router-link to="objects"><el-button round>OBJECT</el-button></router-link>
+        <el-col :span= "2" :gutter="20">
+          <router-link to="objects"><el-button round>Object</el-button></router-link>
         </el-col>
 
         <!-- CASE STUDY -->
-        <el-col :span= "2">
-          <router-link to="casestudies"><el-button round>CASE STUDY</el-button></router-link>
+        <el-col :span= "2" :gutter="20">
+          <router-link to="casestudies"><el-button round>Casestudy</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
-        <el-col :span= "2">
-          <router-link to="standards"><el-button round>STANDARD</el-button></router-link>
+        <el-col :span= "2" :gutter="20">
+          <router-link to="standards"><el-button round>Standard</el-button></router-link>
         </el-col>
         </div>
 
