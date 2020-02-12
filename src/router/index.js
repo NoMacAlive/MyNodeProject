@@ -5,6 +5,7 @@ import CaseStudy from '@/components/CaseStudy'
 import objects from '@/components/objects'
 import casestudies from '@/components/casestudies'
 import standards from '@/components/standards'
+import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Router)
 
 export default new Router({

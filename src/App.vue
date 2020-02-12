@@ -92,8 +92,10 @@
         <router-view ref="view"></router-view>
       </el-main>
       </el-container>
+    <el-tooltip placement="top" content="Back To Top">
+      <el-backtop :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="0" transition-name="fade"/>
+    </el-tooltip>
     </el-container>
-
   </div>
 </template>
 
@@ -107,7 +109,16 @@ export default {
       input1: '',
       input2: '',
       input3: '',
-      select: ''
+      select: '',
+      myBackToTopStyle: {
+        right: '50px',
+        bottom: '50px',
+        width: '40px',
+        height: '40px',
+        borderRadius: '4px',
+        lineHeight: '45px', // 请保持与高度一致以垂直居中
+        background: '#e7eaf1'// 按钮的背景颜色
+      }
     }
   },
   methods: {
@@ -119,6 +130,10 @@ export default {
 </script>
 
 <style>
+html,body {
+  height: 100%;
+}
+@import url("element-ui/lib/theme-chalk/index.css");
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -139,5 +154,12 @@ export default {
 }
 .input-with-select .el-input-group__prepend {
   background-color: #fff;
+}
+.el-scrollbar__wrap {
+    overflow: scroll;
+    height: 100%;
+}
+.page-component__scroll  {
+    height: 100%;
 }
 </style>
