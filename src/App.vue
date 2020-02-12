@@ -18,17 +18,17 @@
         <div style="margin-top:100px">
         <!-- BIM OBJECT -->
         <el-col :span= "2">
-          <el-button round>BIM OBJECT</el-button>
+          <router-link to="objects"><el-button round>OBJECT</el-button></router-link>
         </el-col>
 
         <!-- CASE STUDY -->
         <el-col :span= "2">
-          <el-button round>CASE STUDY</el-button>
+          <router-link to="casestudies"><el-button round>CASE STUDY</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
         <el-col :span= "2">
-          <el-button round>STANDARD</el-button>
+          <router-link to="standards"><el-button round>STANDARD</el-button></router-link>
         </el-col>
         </div>
 
@@ -53,40 +53,42 @@
         </el-row>
 
       </header>
-        <el-aside>
-        <div style="background-color: darkgrey" >
-          <el-menu default-active="1-4-1" class="el-menu-vertical-demo">
-            <el-submenu index="1">
-              <template slot="title">
-                <i class="el-icon-s-home"></i>
-                <span slot="title">Home</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1"><span class="home">Introduction</span></el-menu-item>
-                <el-menu-item index="1-2"><span class="home">GuideLines</span></el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-menu-item index="2">
-              <i class="el-icon-menu"></i>
-              <span slot="title">About Us</span>
-            </el-menu-item>
-            <el-menu-item index="3">
-              <i class="el-icon-document"></i>
-              <span slot="title">Contact Us
+    <el-container>
+      <el-aside>
+      <div style="background-color: darkgrey" >
+        <el-menu default-active="1-4-1" class="el-menu-vertical-demo">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-s-home"></i>
+              <span slot="title">Home</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="1-1"><span class="home">Introduction</span></el-menu-item>
+              <el-menu-item index="1-2"><span class="home">GuideLines</span></el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">About Us</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-document"></i>
+            <span slot="title">Contact Us
 
-              </span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <i class="el-icon-setting"></i>
-              <span slot="title">FeedBack</span>
-            </el-menu-item>
-          </el-menu>
-        </div>
-        </el-aside>
+            </span>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-setting"></i>
+            <span slot="title">FeedBack</span>
+          </el-menu-item>
+        </el-menu>
+      </div>
+      </el-aside>
 
-        <el-main>
-          <router-view></router-view>
-        </el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+      </el-container>
     </el-container>
 
   </div>
