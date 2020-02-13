@@ -66,7 +66,7 @@
               <span slot="title">Home</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item @click="goAssignBlock('Introduction',50)" index="1-1"><span class="home">Introduction</span></el-menu-item>
+              <el-menu-item @click="goAssignBlock('Introduction',50)"  index="1-1"><span class="home">Introduction</span></el-menu-item>
               <el-menu-item @click="goAssignBlock('Guideline',50)" index="1-2"><span class="home">GuideLines</span></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
