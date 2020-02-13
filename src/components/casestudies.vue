@@ -1,22 +1,52 @@
 <template>
     <div>
+    <el-checkbox-group v-model="checkList">
+        <el-checkbox label="Design"></el-checkbox>
+        <el-checkbox label="Implementation"></el-checkbox>
+        <el-checkbox label="Option3"></el-checkbox>
+        <el-checkbox label="Option4" ></el-checkbox>
+    </el-checkbox-group>
     <el-row>
-        <el-col :span="3" v-for="o in 7" :key="o" :offset="1" style="padding-top:10px">
+        <el-col :span="3" v-for="o in 5" :key="o" :offset="1" style="padding-top:10px">
             <el-card :body-style="{ padding: '0px' }">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSGtk6n6E_d6UcimHHbDCMJ4c8BLgPDpE77fh3NCUGB1TYr4yjd" class="image">
             <div style="padding: 14px;">
                 <span>SampleCaseStudy{{o}}
                 </span>
                 <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">Download</el-button>
+                <router-link :to="{name: 'CaseStudy', query: {Id:o}}">
+                <el-button type="text" class="button">Details</el-button>
+                </router-link>
                 </div>
             </div>
             </el-card>
         </el-col>
-</el-row>
+    </el-row>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      checkList: ['scale-down', 'sdfs']
+    }
+  },
+  methods: {
+    caseStudyDetail: function (Id) {
+      console.log('This is a log' + Id)
+      this.$router.push(
+        {
+          name: 'CaseStudy',
+          params: {
+            caseStudyId: Id
+          }
+        }
+      )
+    }
+  }
+}
+</script>
 
 <style scoped>
 .time {

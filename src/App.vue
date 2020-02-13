@@ -7,12 +7,12 @@
         <!-- LOGO -->
         <el-col :span= "6">
         <div>
-          <router-link to="">
+          <router-link to="/">
           <div class="block">
             <el-image
               style="width: 220px; height: 220px"
               :src="url"
-              :fit="fit"></el-image>
+              ></el-image>
 
           </div>
           </router-link >

@@ -1,5 +1,11 @@
 <template>
     <div>
+    <el-checkbox-group v-model="checkList">
+        <el-checkbox label="Design"></el-checkbox>
+        <el-checkbox label="Implementation"></el-checkbox>
+        <el-checkbox label="Option3"></el-checkbox>
+        <el-checkbox label="Option4" ></el-checkbox>
+    </el-checkbox-group>
     <el-row>
         <el-col :span="3" v-for="o in 6" :key="o" :offset="1" style="padding-top:10px">
             <el-card :body-style="{ padding: '0px' }">
