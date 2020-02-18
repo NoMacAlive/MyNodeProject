@@ -5,6 +5,8 @@ import CaseStudy from '@/components/CaseStudy'
 import objects from '@/components/objects'
 import casestudies from '@/components/casestudies'
 import standards from '@/components/standards'
+import aboutUs from '@/components/aboutUs'
+import standard from '@/components/standard'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/standards',
       name: 'standards',
       component: standards
+    },
+    {
+      path: '/aboutus',
+      name: 'aboutUs',
+      component: aboutUs
+    },
+    {
+      path: '/standard',
+      name: 'standard',
+      component: standard
     }
   ]
 })

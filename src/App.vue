@@ -70,10 +70,12 @@
               <el-menu-item @click="goAssignBlock('Guideline',50)" index="1-2"><span class="home">GuideLines</span></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <router-link to="aboutUs"  style="text-decoration: none">
           <el-menu-item index="2">
             <i class="el-icon-menu"></i>
             <span slot="title">About Us</span>
           </el-menu-item>
+          </router-link>
           <el-menu-item index="3">
             <i class="el-icon-document"></i>
             <span slot="title">Contact Us
@@ -116,8 +118,8 @@ export default {
         width: '40px',
         height: '40px',
         borderRadius: '4px',
-        lineHeight: '45px', // 请保持与高度一致以垂直居中
-        background: '#e7eaf1'// 按钮的背景颜色
+        lineHeight: '45px',
+        background: '#e7eaf1'
       }
     }
   },

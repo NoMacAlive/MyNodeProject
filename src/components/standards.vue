@@ -15,7 +15,9 @@
                 </span>
                 <div class="bottom clearfix">
                 <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">Download</el-button>
+                <router-link :to="{name: 'standard', query: {Id:o}}">
+                <el-button type="text" class="button">Details</el-button>
+                </router-link>
                 </div>
             </div>
             </el-card>
