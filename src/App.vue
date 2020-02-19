@@ -76,16 +76,19 @@
             <span slot="title">About Us</span>
           </el-menu-item>
           </router-link>
+          <router-link to="contactUs"  style="text-decoration: none">
           <el-menu-item index="3">
             <i class="el-icon-document"></i>
             <span slot="title">Contact Us
-
             </span>
           </el-menu-item>
+          </router-link>
+          <router-link to="feedback"  style="text-decoration: none">
           <el-menu-item index="4">
             <i class="el-icon-setting"></i>
             <span slot="title">FeedBack</span>
           </el-menu-item>
+          </router-link>
         </el-menu>
       </div>
       </el-aside>

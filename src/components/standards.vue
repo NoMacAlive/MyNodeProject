@@ -14,7 +14,6 @@
                 <span>SampleStandards{{o}}
                 </span>
                 <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
                 <router-link :to="{name: 'standard', query: {Id:o}}">
                 <el-button type="text" class="button">Details</el-button>
                 </router-link>
@@ -25,6 +24,16 @@
     </el-row>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      checkList: ['scale-down', 'sdfs']
+    }
+  }
+}
+</script>
 
 <style scoped>
 .time {

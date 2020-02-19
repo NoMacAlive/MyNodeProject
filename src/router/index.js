@@ -7,6 +7,8 @@ import casestudies from '@/components/casestudies'
 import standards from '@/components/standards'
 import aboutUs from '@/components/aboutUs'
 import standard from '@/components/standard'
+import feedback from '@/components/feedback'
+import contactUs from '@/components/contactus'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
       path: '/standard',
       name: 'standard',
       component: standard
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: feedback
+    },
+    {
+      path: '/contactUs',
+      name: 'contactUs',
+      component: contactUs
     }
   ]
 })
