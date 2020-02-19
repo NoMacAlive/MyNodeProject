@@ -24,6 +24,16 @@
     </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      checkList: ['scale-down', 'sdfs']
+    }
+  }
+}
+</script>
+
 <style scoped>
 .time {
 font-size: 13px;
