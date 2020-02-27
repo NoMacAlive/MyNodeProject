@@ -26,7 +26,7 @@
 
         <!-- CASE STUDY -->
         <el-col :span= "2" :gutter="20">
-          <router-link to="casestudies"><el-button style="min-width:100px" round>BIM Projects</el-button></router-link>
+          <router-link @click.native='getData()' to="casestudies"><el-button style="min-width:100px" round>BIM Projects</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
@@ -94,7 +94,7 @@
       </el-aside>
 
       <el-main>
-        <router-view ref="view"></router-view>
+      <router-view :inputValue='data'></router-view>
       </el-main>
       </el-container>
     <el-tooltip placement="top" content="Back To Top">
@@ -123,12 +123,13 @@ export default {
         borderRadius: '4px',
         lineHeight: '45px',
         background: '#e7eaf1'
-      }
+      },
+      data: {a: 'asfasdfsf'}
     }
   },
-  mounted: function () {
-    this.getData()
-  },
+  // mounted: function () {
+  //   this.data = this.getData()
+  // },
   methods: {
     goAssignBlock: function (el, speed) {
       this.$refs.view.viewFunction(el, speed)
@@ -136,15 +137,16 @@ export default {
     getData () {
       console.log('-------getData')
       var that = this
-      .axios.get('http://localhost:8888/getProjects/')
+      this.axios.get('http://localhost:8888/getProjects/')
                 .then(function (response) {
                   console.log(response)
-                  console.log(this)
-                  that.serverData = response.data
+                  console.log(JSON.parse(JSON.stringify(response.data)))
+                  that.data = JSON.parse(JSON.stringify(response.data))
                 })
                 .catch(function (error) {
                   console.log(error)
                 })
+                console.log(that)
     }
   }
 }

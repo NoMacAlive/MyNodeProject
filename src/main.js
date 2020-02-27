@@ -9,17 +9,18 @@ import axios from 'axios'
 import ElementUI from 'element-ui'
 // 导入组件相关样式
 import 'element-ui/lib/theme-chalk/index.css'
+
 // 配置Vue插件
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
 Vue.prototype.axios = axios
-
+Vue.prototype.bus = new Vue()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

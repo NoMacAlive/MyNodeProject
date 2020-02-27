@@ -7,7 +7,7 @@
         <el-checkbox label="Option4" ></el-checkbox>
     </el-checkbox-group>
     <el-row>
-        <el-col :span="3" v-for="project in json" :key="project" :offset="1" style="padding-top:10px">
+        <!-- <el-col :span="3"  :key="project" :offset="1" style="padding-top:10px">
             <el-card :body-style="{ padding: '0px' }">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSGtk6n6E_d6UcimHHbDCMJ4c8BLgPDpE77fh3NCUGB1TYr4yjd" class="image">
             <div style="padding: 14px;">
@@ -20,18 +20,28 @@
                 </div>
             </div>
             </el-card>
-        </el-col>
+        </el-col> -->
+        <div>{{inputValue}}</div>
     </el-row>
     </div>
 </template>
 
 <script>
-console.log('the data is' + document.projectsData)
 export default {
+  name: 'casestudies',
   data () {
     return {
-      checkList: ['scale-down', 'sdfs']
+      checkList: ['scale-down', 'sdfs'],
+      msg: {}
     }
+  },
+  props: {
+    inputValue: {}
+  },
+  watch: {
+    inputValue: function (value) {
+       console.log('ads')
+     }
   },
   methods: {
     caseStudyDetail: function (Id) {
