@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-container style="height: 1000px; width:1910px" class ="is-vertical">
+    <el-container style="height: 100%; width:100%" class ="is-vertical">
       <!-- HEADER -->
       <header class="el-header" style="height: 200px; background-color: #409EFF;">
         <el-row :gutter="20">
@@ -26,7 +26,7 @@
 
         <!-- CASE STUDY -->
         <el-col :span= "2" :gutter="20">
-          <router-link to="casestudies"><el-button style="min-width:100px" round>Casestudy</el-button></router-link>
+          <router-link to="casestudies"><el-button style="min-width:100px" round>BIM Projects</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
@@ -126,9 +126,25 @@ export default {
       }
     }
   },
+  mounted: function () {
+    this.getData()
+  },
   methods: {
     goAssignBlock: function (el, speed) {
       this.$refs.view.viewFunction(el, speed)
+    },
+    getData () {
+      console.log('-------getData')
+      var that = this
+      .axios.get('http://localhost:8888/getProjects/')
+                .then(function (response) {
+                  console.log(response)
+                  console.log(this)
+                  that.serverData = response.data
+                })
+                .catch(function (error) {
+                  console.log(error)
+                })
     }
   }
 }

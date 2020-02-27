@@ -1,4 +1,4 @@
-<template>
+npm <template>
   <div class="hello">
     <h2>Welcome to your standard {{ Id }}</h2>
     <div class="block">

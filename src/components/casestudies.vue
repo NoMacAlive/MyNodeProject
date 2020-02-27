@@ -7,11 +7,11 @@
         <el-checkbox label="Option4" ></el-checkbox>
     </el-checkbox-group>
     <el-row>
-        <el-col :span="3" v-for="o in 5" :key="o" :offset="1" style="padding-top:10px">
+        <el-col :span="3" v-for="project in json" :key="project" :offset="1" style="padding-top:10px">
             <el-card :body-style="{ padding: '0px' }">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSGtk6n6E_d6UcimHHbDCMJ4c8BLgPDpE77fh3NCUGB1TYr4yjd" class="image">
             <div style="padding: 14px;">
-                <span>SampleCaseStudy{{o}}
+                <span>{{project[0].name}}
                 </span>
                 <div class="bottom clearfix">
                 <router-link :to="{name: 'CaseStudy', query: {Id:o}}">
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+console.log('the data is' + document.projectsData)
 export default {
   data () {
     return {
