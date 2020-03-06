@@ -14,7 +14,7 @@
                 <span>{{project.title}}
                 </span>
                 <div class="bottom clearfix">
-                <router-link :to="{name: 'CaseStudy', query: {Id:project.id}}">
+                <router-link :to="{name: 'CaseStudy', query: {data: project}}">
                 <el-button type="text" class="button">Details</el-button>
                 </router-link>
                 </div>

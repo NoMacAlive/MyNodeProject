@@ -1,26 +1,13 @@
 <template>
   <div class="hello">
-    <h2>Welcome to your CaseStudy {{ Id }}</h2>
-    <el-collapse v-model="activeNames" @change="handleChange">
-      <el-collapse-item title="Summary" name="1">
-        <p>Building Information Modeling (BIM) is the process of creating and managing 3D building data during its development. BIM is a complex multiphase process that gathers input from team members to model the components and tools that will be used during the construction process to create a unique perspective of the building process.</p>
-
-        <p> The 3D process is aimed at achieving savings through collaboration and visualization of building components into an early design process that will dictate changes and modifications to the actual construction process. It is a very powerful tool that when used properly will save money, time and simplify the construction process.</p>
-
-        <p> BIM Is Not Only for Architects Over the years, the industry has commercialized BIM towards architectural related professionals, however, the real purpose and benefits of BIM relate to all construction industry professionals. The 3D representation of the building and now used in roads and utilities too and is geared towards all construction professionals, and all of you are responsible for understanding the process and participate in providing input to the software.</p>
-      </el-collapse-item>
-      <el-collapse-item title="Introduction" name="2">
-        <p>Building Information Modeling (BIM) is the process of creating and managing 3D building data during its development. BIM is a complex multiphase process that gathers input from team members to model the components and tools that will be used during the construction process to create a unique perspective of the building process.</p>
-
-        <p> The 3D process is aimed at achieving savings through collaboration and visualization of building components into an early design process that will dictate changes and modifications to the actual construction process. It is a very powerful tool that when used properly will save money, time and simplify the construction process.</p>
-
-        <p> BIM Is Not Only for Architects Over the years, the industry has commercialized BIM towards architectural related professionals, however, the real purpose and benefits of BIM relate to all construction industry professionals. The 3D representation of the building and now used in roads and utilities too and is geared towards all construction professionals, and all of you are responsible for understanding the process and participate in providing input to the software.</p>
-      </el-collapse-item>
-      <el-collapse-item title="Workflow" name="3">
-      </el-collapse-item>
-      <el-collapse-item title="Project Phase" name="4">
-      </el-collapse-item>
-    </el-collapse>
+    <h2>{{data.title}}</h2>
+    <el-divider></el-divider>
+    <img :src=data.imgUrl class="image">
+    <el-divider></el-divider>
+    <h3>Introduction</h3>
+    <p>{{data.introduction}}</p>
+    <el-divider></el-divider>
+    <el-button type='primary'>Download</el-button>
   </div>
 </template>
 
@@ -28,9 +15,26 @@
 export default {
   data () {
     return {
-      Id: this.$route.query.Id,
-      activeNames: ['1']
+      d: this.$route.query.data,
+      activeNames: ['1'],
+      data: {title: 'sample topic'}
     }
+  },
+  mounted () {
+    console.log('-------getData')
+    var that = this
+    var url = 'http://localhost:8888/getProject/'
+    var u = url.concat(this.$route.query.data.id)
+    this.axios.get(u)
+              .then(function (response) {
+                console.log(JSON.parse(JSON.stringify(response.data)))
+                that.data = JSON.parse(JSON.stringify(response.data))
+                console.log(that.data)
+              })
+              .catch(function (error) {
+                console.log(error)
+              })
+              console.log('--------------gotData')
   },
   methods: {
     handleChange (val) {
