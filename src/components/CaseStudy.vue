@@ -20,12 +20,12 @@ export default {
       data: {title: 'sample topic'}
     }
   },
-  mounted () {
+  beforeMount () {
     console.log('-------getData')
     var that = this
-    var url = 'http://localhost:8888/getProject/'
+    var url = '/getProject/'
     var u = url.concat(this.$route.query.data.id)
-    this.axios.get(u)
+    this.axios.get(process.env.API_HOST + u)
               .then(function (response) {
                 console.log(JSON.parse(JSON.stringify(response.data)))
                 that.data = JSON.parse(JSON.stringify(response.data))

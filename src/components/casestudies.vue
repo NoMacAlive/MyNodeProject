@@ -49,7 +49,7 @@ export default {
   beforeMount () {
     console.log('-------getData')
     var that = this
-    this.axios.get('http://localhost:8888/getProjects/')
+    this.axios.get(process.env.API_HOST + '/getProjects')
               .then(function (response) {
                 console.log(JSON.parse(JSON.stringify(response.data)))
                 that.data = JSON.parse(JSON.stringify(response.data))
@@ -58,7 +58,7 @@ export default {
               .catch(function (error) {
                 console.log(error)
               })
-              console.log('--------------gotData')
+              console.log('casestudies gotData')
   }
 }
 </script>
