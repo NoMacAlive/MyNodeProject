@@ -26,7 +26,8 @@
 
         <!-- CASE STUDY -->
         <el-col :span= "2" :gutter="20">
-          <router-link @click.native='getData()' to="casestudies"><el-button style="min-width:100px" round>BIM Projects</el-button></router-link>
+          <!-- @click.native='getData()' to="casestudies" -->
+          <router-link to="casestudies"><el-button style="min-width:100px" round>BIM Projects</el-button></router-link>
         </el-col>
 
         <!-- STANDARD -->
@@ -133,21 +134,21 @@ export default {
   methods: {
     goAssignBlock: function (el, speed) {
       this.$refs.view.viewFunction(el, speed)
-    },
-    getData () {
-      console.log('-------getData')
-      var that = this
-      this.axios.get('http://localhost:8888/getProjects/')
-                .then(function (response) {
-                  console.log(response)
-                  console.log(JSON.parse(JSON.stringify(response.data)))
-                  that.data = JSON.parse(JSON.stringify(response.data))
-                })
-                .catch(function (error) {
-                  console.log(error)
-                })
-                console.log(that)
     }
+    // getData () {
+    //   console.log('-------getData')
+    //   var that = this
+    //   this.axios.get('http://localhost:8888/getProjects/')
+    //             .then(function (response) {
+    //               console.log(response)
+    //               console.log(JSON.parse(JSON.stringify(response.data)))
+    //               that.data = JSON.parse(JSON.stringify(response.data))
+    //             })
+    //             .catch(function (error) {
+    //               console.log(error)
+    //             })
+    //             console.log(that)
+    // }
   }
 }
 </script>
