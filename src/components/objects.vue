@@ -14,7 +14,6 @@
                 <span>SampleBIMObject{{o}}
                 </span>
                 <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
                 <el-button type="text" class="button">Download</el-button>
                 </div>
             </div>

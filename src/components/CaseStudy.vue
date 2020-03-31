@@ -7,7 +7,30 @@
     <h3>Introduction</h3>
     <p>{{data.introduction}}</p>
     <el-divider></el-divider>
-    <el-button type='primary'>Download</el-button>
+    <el-table
+      :data="tableData"
+      style="width: 100%">
+      <el-table-column
+        prop="name"
+        label="File Name"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="format"
+        label="File Format"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="description"
+        label="Description">
+      </el-table-column>
+      <el-table-column
+        label="Link">
+        <template slot-scope="scope">
+        <a :href="scope.row.link" target="_blank" class="buttonText">{{scope.row.link}}</a>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -17,7 +40,8 @@ export default {
     return {
       d: this.$route.query.data,
       activeNames: ['1'],
-      data: {title: 'sample topic'}
+      data: {title: 'sample topic'},
+      tableData: [{}]
     }
   },
   beforeMount () {
@@ -27,9 +51,12 @@ export default {
     var u = url.concat(this.$route.query.data.id)
     this.axios.get(process.env.API_HOST + u)
               .then(function (response) {
-                console.log(JSON.parse(JSON.stringify(response.data)))
+                // console.log(JSON.parse(JSON.stringify(response.data)))
                 that.data = JSON.parse(JSON.stringify(response.data))
+                var parsedJson = eval('(' + response.data.tableData + ')')
+                that.tableData = Object.keys(parsedJson).map(key => parsedJson[key])
                 console.log(that.data)
+                console.log(that.tableData)
               })
               .catch(function (error) {
                 console.log(error)
